@@ -1,6 +1,6 @@
 function jeuOrdinateur(intervalle = Math.random()) {
     let jeuOrdinateur;
-    
+
     if (intervalle < 0.34 ) {
         jeuOrdinateur = "pierre";
     } else if(intervalle >= 0.34 && intervalle < 0.66){
@@ -13,23 +13,26 @@ function jeuOrdinateur(intervalle = Math.random()) {
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////
 function jeuUser() {
-    let jeuUser = prompt("Que jouez-vous? (pierre, feuille, ciseaux?)");
+    let jeuUser = prompt("Que jouez-vous? (pierre, feuille, ciseaux?)").toLowerCase();
     console.log(jeuUser);
     return jeuUser;
 }
 //////////////////////////////////////////////////////////////////////////////////////////////
 let pointsOrdinateur = 0;
-let pointsJoueur =0;
+let pointsJoueur = 0;
 function choixVainqueurManche(jeuOrdinateur, jeuUser){
 
     // Victoires Ordinateur
     if (jeuOrdinateur === "pierre" && jeuUser === "ciseaux" 
     || jeuOrdinateur === "feuille" && jeuUser === "pierre" 
-    || jeuOrdinateur === "ciseaux" && jeuUser === "feuille"
-    ////Pénalités triche ou vocabulaire user
-    || jeuUser != "pierre" && jeuUser != "feuille" && jeuUser != "ciseaux"
-    || jeuUser === "") {
+    || jeuOrdinateur === "ciseaux" && jeuUser === "feuille"){
         alert("Manche gagnée : Ordinateur")
+        pointsOrdinateur ++;
+        alert("Ordinateur : " + pointsOrdinateur + " - Joueur : " + pointsJoueur)
+
+    ////Pénalités triche ou vocabulaire user
+    } else if(jeuUser != "pierre" && jeuUser != "feuille" && jeuUser != "ciseaux"){
+        alert("Jeu non valide - Manche gagnée : Ordinateur")
         pointsOrdinateur ++;
         alert("Ordinateur : " + pointsOrdinateur + " - Joueur : " + pointsJoueur)
 
@@ -54,8 +57,8 @@ for (let nbreManchesJouees = 0; nbreManchesJouees < manchesMax; nbreManchesJouee
 if (pointsJoueur > pointsOrdinateur) {
     alert("Vainqueur : JOUEUR, Félicitations!")
 } else if (pointsJoueur < pointsOrdinateur) {
-    alert("Vainqueur : ORDINATEUR, recommencez!")
+    alert("Vainqueur : ORDINATEUR, réessayez!")
 }else {
-    alert("EGALITE, recommencez!")
+    alert("EGALITE, réssayez!")
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////
