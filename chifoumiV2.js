@@ -3,7 +3,7 @@ function jeuOrdinateur(intervalle = Math.random()) {
     
     if (intervalle < 0.34 ) {
         jeuOrdinateur = "pierre";
-    } else if(intervalle > 0.34 && intervalle < 0.66){
+    } else if(intervalle >= 0.34 && intervalle < 0.66){
         jeuOrdinateur = "feuille";
     } else {
         jeuOrdinateur = "ciseaux";
