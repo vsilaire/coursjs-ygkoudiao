@@ -18,18 +18,38 @@ function jeuUser() {
     return jeuUser;
 }
 
+let pointsOrdinateur = 0;
+let pointsJoueur =0;
 function choixVainqueurManche(jeuOrdinateur, jeuUser){
-    if (jeuOrdinateur === "pierre" && jeuUser === "ciseaux" || jeuOrdinateur === "feuille" && jeuUser === "pierre" || jeuOrdinateur === "ciseaux" && jeuUser === "feuille") {
-        alert("Vainqueur : Ordinanteur")
+    
+    if (jeuOrdinateur === "pierre" && jeuUser === "ciseaux" 
+    || jeuOrdinateur === "feuille" && jeuUser === "pierre" 
+    || jeuOrdinateur === "ciseaux" && jeuUser === "feuille"
+    || jeuUser != "pierre" && jeuUser != "feuille" && jeuUser != "ciseaux"
+    || jeuUser === "") {
+        alert("Manche gagnée : Ordinateur")
+        pointsOrdinateur ++;
+        alert("Ordinateur : " + pointsOrdinateur + " - Joueur : " + pointsJoueur)
+
     } else if(jeuOrdinateur === jeuUser){
         alert("Egalité")
+        alert("Ordinateur : " + pointsOrdinateur + " - Joueur : " + pointsJoueur)
     } else{
-        alert("Vainqueur : Joueur")
+        alert("Manche gagnée : Joueur")
+        pointsJoueur ++;
+        alert("Ordinateur : " + pointsOrdinateur + " - Joueur : " + pointsJoueur)
     }
 }
 
 let nbreManchesJouees;
 const manchesMax = 3;
 for (let nbreManchesJouees = 0; nbreManchesJouees < manchesMax; nbreManchesJouees++) {
-    
+    choixVainqueurManche(jeuOrdinateur(), jeuUser());   
+}
+if (pointsJoueur > pointsOrdinateur) {
+    alert("Vainqueur : JOUEUR, Félicitations!")
+} else if (pointsJoueur < pointsOrdinateur) {
+    alert("Vainqueur : ORDINATEUR, recommencez!")
+}else {
+    alert("EGALITE, recommencez!")
 }
