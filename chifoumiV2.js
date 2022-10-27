@@ -1,3 +1,4 @@
+alert("CHIFOUMI - Jeu en 3 manches, Bonne chance!")
 function jeuOrdinateur(intervalle = Math.random()) {
     let jeuOrdinateur;
 
@@ -20,7 +21,10 @@ function jeuUser() {
 //////////////////////////////////////////////////////////////////////////////////////////////
 let pointsOrdinateur = 0;
 let pointsJoueur = 0;
+let pointsEgalite = 0;
 function choixVainqueurManche(jeuOrdinateur, jeuUser){
+
+    alert("Ordinateur joue : " + jeuOrdinateur + " - " + "Challenger joue : " + jeuUser);
 
     // Victoires Ordinateur
     if (jeuOrdinateur === "pierre" && jeuUser === "ciseaux" 
@@ -28,37 +32,40 @@ function choixVainqueurManche(jeuOrdinateur, jeuUser){
     || jeuOrdinateur === "ciseaux" && jeuUser === "feuille"){
         alert("Manche gagnée : Ordinateur")
         pointsOrdinateur ++;
-        alert("Ordinateur : " + pointsOrdinateur + " - Joueur : " + pointsJoueur)
+        alert("Ordinateur : " + pointsOrdinateur + " - Joueur : " + pointsJoueur + " - Egalité : " + pointsEgalite)
 
     ////Pénalités triche ou vocabulaire user
     } else if(jeuUser != "pierre" && jeuUser != "feuille" && jeuUser != "ciseaux"){
         alert("Jeu non valide - Manche gagnée : Ordinateur")
         pointsOrdinateur ++;
-        alert("Ordinateur : " + pointsOrdinateur + " - Joueur : " + pointsJoueur)
+        alert("Ordinateur : " + pointsOrdinateur + " - Joueur : " + pointsJoueur + " - Egalité : " + pointsEgalite)
 
     // Egalité
     } else if(jeuOrdinateur === jeuUser){
         alert("Egalité")
-        alert("Ordinateur : " + pointsOrdinateur + " - Joueur : " + pointsJoueur)
+        pointsEgalite ++;
+        alert("Ordinateur : " + pointsOrdinateur + " - Joueur : " + pointsJoueur + " - Egalité : " + pointsEgalite)
 
     // Victoire User
     } else{
         alert("Manche gagnée : Joueur")
         pointsJoueur ++;
-        alert("Ordinateur : " + pointsOrdinateur + " - Joueur : " + pointsJoueur)
+        alert("Ordinateur : " + pointsOrdinateur + " - Joueur : " + pointsJoueur + " - Egalité : " + pointsEgalite)
     }
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////
 let nbreManchesJouees;
 const manchesMax = 3;
-for (let nbreManchesJouees = 0; nbreManchesJouees < manchesMax; nbreManchesJouees++) {
-    choixVainqueurManche(jeuOrdinateur(), jeuUser());   
+for (nbreManchesJouees = 0; nbreManchesJouees < manchesMax; nbreManchesJouees++) {
+    choixVainqueurManche(jeuOrdinateur(), jeuUser());
+    alert("Manches restantes : " + (manchesMax - (nbreManchesJouees +1)));   
 }
+
 if (pointsJoueur > pointsOrdinateur) {
     alert("Vainqueur : JOUEUR, Félicitations!")
 } else if (pointsJoueur < pointsOrdinateur) {
     alert("Vainqueur : ORDINATEUR, réessayez!")
 }else {
-    alert("EGALITE, réssayez!")
+    alert("EGALITE, Oups!")
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////
