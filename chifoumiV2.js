@@ -1,4 +1,4 @@
-const manchesMax = 10;
+const manchesMax = 3;
 alert("CHIFOUMI - Jeu en " + manchesMax + " manches. Bonne chance!")
 ///////////////////////////////////////////////////////////////////////////////////////////////
 function jeuOrdinateur(intervalle = Math.random()) {
