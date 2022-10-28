@@ -63,7 +63,7 @@ function chifoumi3Manches(){
     } else if (pointsJoueur < pointsOrdinateur) {
         alert("Vainqueur : ORDINATEUR, réessayez!")
     }else {
-        alert("EGALITE, Oups, eéessayez!")
+        alert("EGALITE, Oups, réessayez!")
     }
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////
